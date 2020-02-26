@@ -1,0 +1,11 @@
+---
+- hosts: Team1-Docker
+  become: true
+  tasks:
+  - name: Build Docker Image using war file
+    command: "docker build -t simple-devops-image ."
+    args:
+     chdir: /opt/docker
+
+  - name: Build Docker Containers using Devops image.
+    command: "docker run --name simple-devops-container -p 8081:8080 -d simple-devops-image"
