@@ -1,0 +1,9 @@
+---
+- hosts: Team1-Docker
+  become: true
+  tasks:
+  - name: Remove Docker Image.
+    command: "docker rmi simple-devops-image ."
+
+  - name: Delete Simple-Devops Containers.
+    command: "docker stop simple-devops-container ; docker rm simple-devops-container"
